@@ -1,0 +1,125 @@
+/*
+ * Custom styles
+ */
+nav.navbar-webmaster {
+    background: #1b242c;
+    height: 60px;
+}
+
+nav.navbar-webmaster a {
+    color: #fff;
+}
+
+nav.navbar-webmaster ul.navbar-nav a {
+    color: #fff;
+    /*border-style: solid;
+    border-width: 1px 0 0 0;*/
+    border-color: #1b242c;
+}
+
+nav.navbar-webmaster ul.navbar-nav a:hover,
+nav.navbar-webmaster ul.navbar-nav a:visited,
+nav.navbar-webmaster ul.navbar-nav a:focus,
+nav.navbar-webmaster ul.navbar-nav a:active {
+    background: #3b4045;
+}
+
+nav.navbar-webmaster ul.navbar-nav a:hover {
+    border-color: #5fb000;
+}
+
+nav.navbar-webmaster li.divider {
+    background: #ccc;
+}
+
+nav.navbar-webmaster button.navbar-toggle {
+    background: #1b242c;
+    border-radius: 2px;
+}
+
+nav.navbar-webmaster button.navbar-toggle:hover {
+    background: #999;
+}
+
+nav.navbar-webmaster button.navbar-toggle > span.icon-bar {
+    background: #fff;
+}
+
+nav.navbar-webmaster ul.dropdown-menu {
+    /*border: 0;
+    background: #fff;
+    border-radius: 1px;
+    margin: 4px 0;*/
+    box-shadow: 0 0 4px 0 #ccc;
+}
+
+nav.navbar-webmaster ul.dropdown-menu > li > a {
+    color: #444;
+}
+
+nav.navbar-webmaster ul.dropdown-menu > li > a:hover {
+    background: #f14444;
+    color: #fff;
+}
+
+nav.navbar-webmaster span.badge {
+    background: #f14444;
+    font-weight: normal;
+    font-size: 11px;
+    margin: 0 4px;
+}
+
+nav.navbar-webmaster span.badge.new {
+    background: rgba(255, 0, 0, 0.8);
+    color: #fff;
+}
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    margin-top: 20px;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.navbar-wrapper .navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.navbar-content {
+    width: 320px;
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.navbar-content:before, .navbar-content:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 15px !important;
+}
+
+.navbar-footer {
+    background-color: #DDD;
+}
+
+.navbar-footer-content {
+    padding: 15px 15px 15px 15px;
+}
+
+.dropdown-menu {
+    padding: 0px;
+    overflow: hidden;
+}
