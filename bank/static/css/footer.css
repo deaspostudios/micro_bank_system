@@ -1,13 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900|Open+Sans:400,300);
 
 footer {
-    background-image: url(webenlance.in/bootsnipp/images/footer_sli2.png);
+    #background-image: url(images/eco5.jpg);
     background-repeat: repeat;
 }
 
 .footer_top {
     min-height: 100px;
-    background: rgba(255, 255, 255, 0);
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(247, 247, 247, 0) 56%, rgba(247, 247, 247, 1) 57%, rgba(38, 12, 77, 1) 57%, rgba(38, 12, 77, 0.97) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(56%, rgba(247, 247, 247, 0)), color-stop(57%, rgba(247, 247, 247, 1)), color-stop(57%, rgba(38, 12, 77, 1)), color-stop(100%, rgba(38, 12, 77, 0.97)));
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(247, 247, 247, 0) 56%, rgba(247, 247, 247, 1) 57%, rgba(38, 12, 77, 1) 57%, rgba(38, 12, 77, 0.97) 100%);
@@ -19,9 +18,7 @@ footer {
 
 .bagcblue {
     background-color: #260c4d;
-    background-image: url(http://webenlance.in/bootsnipp/images/footer_sli.png);
     background-repeat: no-repeat;
-    background-position: left top;
     padding-left: 65px;
     padding-top: 15px;
     color: #FFF;
@@ -34,7 +31,6 @@ footer {
 }
 
 .bagcgrey {
-    background-image: url(http://webenlance.in/bootsnipp/images/footer_sli2.png);
     background-repeat: repeat;
     min-height: 131px;
 }
@@ -65,8 +61,9 @@ footer {
 
 .footer_bottom_col {
     background-color: #373542;
-    min-height: 388px;
+    #min-height: 388px;
     padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .heading_footer {
@@ -79,7 +76,6 @@ footer {
 
 .heading_footer span {
     display: block;
-    background-image: url(http://webenlance.in/bootsnipp/images/display.png);
     background-repeat: no-repeat;
     background-position: left bottom;
     padding-bottom: 8px;
