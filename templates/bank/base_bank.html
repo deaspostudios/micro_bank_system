@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet" media="all">
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.vertical-tabs.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/nav_fixed.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/hover_nav.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
@@ -29,62 +30,78 @@
 <body>
 
 <!-- beginning of navigation bar -->
-<nav class="navbar navbar-fixed-top navbar-webmaster">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Bank XXX</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">About<span class="sr-only">(current)</span></a></li>
-                {% block contact %}
-                    <li><a href="#contactForm" data-toggle="modal" data-target="#contactForm" data-backdrop="static"
-                           data-keyboard="false"
-                           class="main-menu-link contact block-keep-ratio__content flexbox-center">Contact us<span
-                            class="sr-only">(current)</span></a></li>{% endblock contact %}
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account
-                    <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <div class="navbar-content">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <img src="{{ picture.url }}"
-                                             alt="Alternate Text" class="img-responsive"/>
+        <div class="">
+            <div class="row">
+                <header>
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-default navbar-fixed-top" style="width: 100%; background: #000000;">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                            data-target="#navbar">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a style="color: white;" class="navbar-brand" href="/">Bank XXX</a>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span>{{ user.fullname }}</span>
-                                        <p class="text-muted small">{{ email }}</p>
-                                        <p class="text-muted small">{{ username }}</p>
-                                        <div class="divider">
-                                        </div>
-                                        <a href="#">View Profile</a>
+
+                                <div class="navbar-collapse collapse" id="navbar">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a id="navref" href="#">About<span class="sr-only">(current)</span></a></li>
+                                        {% block contact %}
+                                            <li><a id="navref" href="#contactForm" data-toggle="modal"
+                                                   data-target="#contactForm" data-backdrop="static"
+                                                   data-keyboard="false"
+                                                   class="main-menu-link contact block-keep-ratio__content flexbox-center">Contact
+                                                us<span
+                                                        class="sr-only">(current)</span></a></li>{% endblock contact %}
+                                        <li class="dropdown"><a id="navref" href="#" class="dropdown-toggle"
+                                                                data-toggle="dropdown">Account
+                                            <b class="caret"></b></a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="navbar-content">
+                                                        <div class="row">
+                                                            <div class="col-md-5">
+                                                                <img src="{{ picture.url }}"
+                                                                     alt="Alternate Text" class="img-responsive"/>
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <span>{{ user.fullname }}</span>
+                                                                <p class="text-muted small">{{ email }}</p>
+                                                                <p class="text-muted small">{{ username }}</p>
+                                                                <div class="divider">
+                                                                </div>
+                                                                <a href="#">View Profile</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="navbar-footer">
+                                                        <div class="navbar-footer-content">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <a href="{% url 'logout' %}"
+                                                                       class="btn btn-default btn-sm pull-right">Sign
+                                                                        Out</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
                                     </div>
-                                </div>
                             </div>
-                            <div class="navbar-footer">
-                                <div class="navbar-footer-content">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <a href="{% url 'logout' %}" class="btn btn-default btn-sm pull-right">Sign
-                                                Out</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
         </div>
     </div>
-</nav>
 <!-- end of navigation bar -->
 
 
@@ -95,7 +112,7 @@
         <div id="topheader">
             {% block search %}
                 <div style="margin-top: 10px; margin-bottom: 20px;" class="row">
-                    <div class="col-xs-4">
+                    <div class="col-xs-12">
                         <div class="input-group">
                             <div class="input-group-btn search-panel">
                                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -115,8 +132,7 @@
                             <input type="hidden" name="search_param" value="all" id="search_param">
                             <input id="search" type="text" class="form-control" name="q" placeholder="Search">
                             <span class="input-group-btn">
-                        <button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
-                    </span>
+                        <button class="btn btn-default" type="button"><span class="fa fa-search"></span></button></span>
                         </div>
                         <div id="filter-panel" class="collapse filter-panel">
                             <div class="panel panel-default">
@@ -153,22 +169,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="follow">
-                            <h3>Follow us</h3>
-                            <ul class="social">
-                                <li><a href="https://www.facebook.com/deaspostudios/"> <i class=" fa fa-facebook"> </i>
-                                </a></li>
-                                <li><a href="https://twitter.com/deaspostudios"> <i class="fa fa-twitter"> </i> </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/company/deaspo-studios-inc.?trk=biz-companies-cym">
-                                        <i class="fa fa-linkedin"> </i> </a></li>
-                            </ul>
+                        <div>
+                            <img width="100%" src="{% static 'images/Basebar.png' %}" class="img-responsive">
                         </div>
-                    </div>
-                    <div style="margin-top: -20px;" class="col-xs-8">
-                        <img src="{% static 'images/Basebar.png' %}">
-
                     </div>
                 </div>
 
@@ -194,14 +197,14 @@
 <!-- Begin the body intro -->
 
 <div class="container" id="master">
-    <div class="jumbotron">
         <div class="row">
             <header>
                 <div class="container-fluid">
-                    <nav class="navbar navbar-default" style="width: 100%; background: #999997;">
+                    <nav class="navbar navbar-default">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                <button style="background: black;" type="button" class="navbar-toggle collapsed"
+                                        data-toggle="collapse"
                                         data-target="#navbar2">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
@@ -230,143 +233,157 @@
                     </nav>
                 </div>
             </header>
+        </div>
+</div>
 
+<div class="container" id="tabsBody">
+    <div class="row">
+        <!-- tabs -->
+        <div class="col-xs-3"> <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left sideways">
+                <li class="active"><a href="#summary-v" data-toggle="tab">Account Summary</a></li>
+                <li><a href="#current-v" data-toggle="tab">Current Account</a></li>
+                <li><a href="#savings-v" data-toggle="tab">Savings Account</a></li>
+                <li><a href="#cards-v" data-toggle="tab">ATM Cards</a></li>
+                <li><a href="#loans-v" data-toggle="tab">Loans</a></li>
+                <li><a href="#mobile-v" data-toggle="tab">Bank XXX Mobile</a></li>
+                <li><a href="#internet-v" data-toggle="tab">Internet Banking</a></li>
+            </ul>
+        </div>
 
-            <div class="col-xs-12">
-                <!-- tabs -->
-                <div class="tabbable tabs-left">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#info" data-toggle="tab">Bank XXX Information</a></li>
-                        <li><a href="#summary" data-toggle="tab"> Account Summary</a></li>
-                        <li><a href="#current" data-toggle="tab">Current Account</a></li>
-                        <li><a href="#savings" data-toggle="tab">Savings Account</a></li>
-                        <li><a href="#card" data-toggle="tab">Cards</a></li>
-                        <li><a href="#loans" data-toggle="tab"> Loans</a></li>
-                        <li><a href="#rapid" data-toggle="tab"> Rapid Transfers</a></li>
-                        <li><a href="#exchange" data-toggle="tab"> Foreign Exchange</a></li>
-                        <li><a href="#mobile" data-toggle="tab"> Bank XXX Mobile</a></li>
-                        <li><a href="#internet" data-toggle="tab"> Internet Banking</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="info">
-                            <div class="">
-                                <div style="min-height: 200px; max-height: 600px;" class="col-xs-10">
-                                    <div class="text-center">
-                                        <header>
-                                            <h3> Welcome to Bank XXX <span class="fa fa-heartbeat"></span></h3>
-                                        </header>
-                                    </div>
-                                    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000"
-                                         id="bs-carousel">
-                                        <!-- Overlay -->
-                                        <div class="overlay"></div>
-
-                                        <!-- Indicators -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
-                                            <li data-target="#bs-carousel" data-slide-to="1"></li>
-                                            <li data-target="#bs-carousel" data-slide-to="2"></li>
-                                        </ol>
-
-                                        <!-- Wrapper for slides -->
-                                        <div class="carousel-inner">
-                                            <div class="item slides active">
-                                                <div class="slide-1"></div>
-                                                <div class="hero">
-                                                    <hgroup>
-                                                        <h1></h1>
-                                                        <h3></h3>
-                                                    </hgroup>
-                                                    <!--<button class="btn btn-hero btn-lg" role="button">See all features</button>-->
-                                                </div>
-                                            </div>
-                                            <div class="item slides">
-                                                <div class="slide-2"></div>
-                                                <div class="hero">
-                                                    <hgroup>
-                                                        <h1></h1>
-                                                        <h3></h3>
-                                                    </hgroup>
-                                                    <!--<button class="btn btn-hero btn-lg" role="button">See all features</button>-->
-                                                </div>
-                                            </div>
-                                            <div class="item slides">
-                                                <div class="slide-3"></div>
-                                                <div class="hero">
-                                                    <hgroup>
-                                                        <h1></h1>
-                                                        <h3></h3>
-                                                    </hgroup>
-                                                    <!--<button class="btn btn-hero btn-lg" role="button">See all features</button>-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="summary">
-                            <div class="">
-                                <h1>Account Summary Tab</h1>
-                                <p>Summary of all the accounts held by the person</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="current">
-                            <div class="">
-                                <h1>Current Account Tab</h1>
-                                <p>Current account(s) held by the user</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="savings">
-                            <div class="">
-                                <h1>Saving Account Tab</h1>
-                                <p>Savings account(s) held.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="cards">
-                            <div class="">
-                                <h1>ATM Cards Tab</h1>
-                                <p>All the ATM card(s) held.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="loans">
-                            <div class="">
-                                <h1>Loans Tab</h1>
-                                <p>All the loans borrowed if any and chance to apply for one.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="rapid">
-                            <div class="">
-                                <h1>Rapi Transfers Tab</h1>
-                                <p>. All transfers done and a chance to conduct one</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="exchange">
-                            <div class="">
-                                <h1>Foreign Exchange Tab</h1>
-                                <p>Check for foreign exchange rates and conversion services.</p>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="mobile">
-                            <div class="">
-                                <h1>Bank XXX Mobile Tab</h1>
-                                <p> Register and conduct mobile banking services.</p>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="internet">
-                            <div class="">
-                                <h1>Internet Banking Tab</h1>
-                                <p>Carry out internet internet banking services</p>
-                            </div>
-                        </div>
-
+        <div class="col-xs-9">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="summary-v">Account Summary.</div>
+                <div class="tab-pane" id="current-v">Current Acounts Section.</div>
+                <div class="tab-pane" id="savings-v">Savings Account Section.</div>
+                <div class="tab-pane" id="cards-v">Registered ATM cards Section.</div>
+                <div class="tab-pane" id="loans-v">
+                    <h2>Check and Borrow loans Section.</h2>
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe width="100%" src="{% url 'loan' %}" name="loanHome" seamless=""></iframe>
                     </div>
+                    <a class="btn bg-info btn-lg pull-right"><span class="fa fa-plus"></span> Apply for a new loan</a>
                 </div>
-                <!-- /tabs -->
+                <div class="tab-pane" id="mobile-v">Mobile Banking Services.</div>
+                <div class="tab-pane" id="internet-v">Internet Banking Section.</div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- /tabs -->
+    </div>
+</div>
+
+
+<!--footer-->
+<footer>
+    <div class="footer_top">
+        <div class="doct"></div>
+        <div class="container">
+            <div class="col-md-5 bagcgrey">
+                <div class="row">
+                    <div class="methodh4">
+                        <h4>FOLLOW US</h4>
+                        </div>
+                    <ul class="social socmatpbo">
+                        <p></p>
+                        <li><a target="_blank" href=""><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" href=""><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" href=""><i class="fa fa-linkedin"></i></a></li>
+                        <li><a target="_blank" href=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a target="_blank" href=""><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 bagcblue">
+                <div class="heading6">Do you need to speak to our team members?</div>
+                <p> Our tema members are here to help.</p>
+                <button type="button" class="btn btn-success">Live Chat <span class="fa fa-comments-o"></span></button>
             </div>
         </div>
     </div>
+    <div class="footer_bottom_col">
+        <div class="container">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="heading_footer">Everyday <span>Banking</span></div>
+                        <ul class="footerul">
+                            <li><a href="">Option A </a></li>
+                            <li><a href="">Option B </a></li>
+                            <li><a href="">Option C </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="heading_footer">Payments & <span>Traansfers</span></div>
+                        <ul class="footerul">
+                            <li><a href="">Option A </a></li>
+                            <li><a href="">Option B </a></li>
+                            <li><a href="">Option C </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="heading_footer">Ways to <span>Bank</span></div>
+                        <ul class="footerul">
+                            <li><a href="">Option A </a></li>
+                            <li><a href="">Option B </a></li>
+                            <li><a href="">Option C </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="heading_footer">Products & <span>Services</span></div>
+                            <ul class="footerul">
+                                <li><a href="">Option A </a></li>
+                                <li><a href="">Option B </a></li>
+                                <li><a href="">Option C </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="heading_footer">Contact <span>us</span></div>
+                            <ul class="footerul">
+                                <form>
+                                    <input type="text" class="full text-center"
+                                           placeholder="Email to subscribe to our newsletters ">
+                                    <br>
+                                    <input class="btn  bg-gray" type="submit"> Subscribe </input>
+                                </form>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <p class="copyright pull-left"><strong>Copyright &copy; 2016
+                <script>new Date().getFullYear() > 2016 && document.write("-" + new Date().getFullYear());</script>
+                Deaspo Studios Inc.</strong></p>
+            <div class="pull-right">
+                <ul style="margin-right: 35px;" class="nav nav-pills payments">
+                    <li><i class="fa fa-cc-visa"></i></li>
+                    <li><i class="fa fa-cc-mastercard"></i></li>
+                    <li><i class="fa fa-cc-paypal"></i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end footer -->
 
 
     <!-- Javascripts -->

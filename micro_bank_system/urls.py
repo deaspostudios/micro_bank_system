@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from bank import views as bView
+from loan import views as lView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,6 +27,9 @@ urlpatterns = [
     url(r'^home/?$', bView.home, name='home'),
     url(r'login/?$', bView.signin, name='login'),
     url(r'logout/?$', bView.sign_out, name='logout'),
+    # Urlss for the loan app
+    url(r'loan/?$', lView.loan_home, name='loan'),
+    # Define account urls
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
 
