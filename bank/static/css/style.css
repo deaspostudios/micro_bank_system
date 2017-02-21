@@ -8,10 +8,10 @@
     list-style: none;
 }
 
-/** begining of body introduction */
+/** beginning of body introduction */
 #master {
-    width: 85%;
-    margin: 40px auto;
+    #width: 85%;
+    #margin: 40px auto;
 }
 
 #left-nav {
@@ -29,6 +29,7 @@
     margin-bottom: 0;
 }
 
+
 .nav-pills ul {
     margin-top: 20px;
 }
@@ -37,6 +38,10 @@
     background-color: #587c66;
     margin-bottom: 1px;
     padding: 5px 9px;
+}
+
+#navref {
+    color: white;
 }
 
 #swf_container {
@@ -59,3 +64,65 @@ nav.navbar-green a {
 }
 
 /** end of body intro styles */
+
+/* class separable and navbar default */
+
+@media only screen and (max-width: 940px) {
+    #navPrincipal .separadorDiagonal {
+        display: none;
+    }
+
+    .navbar-default ul li {
+        font-size: medium;
+        color: lightgrey;
+    }
+
+}
+
+.navbar-default {
+    background-color: white;
+    padding: 8px;
+}
+
+.navbar-default ul {
+    padding: 1px;
+}
+
+.navbar-default ul li {
+    font-size: medium;
+    color: lightgrey;
+}
+
+.separadorDiagonal {
+    padding: 7px 0 0 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.navbar-default #navPrincipal li a {
+    color: #3F78A9;
+}
+
+.navbar-default #navPrincipal li a:hover {
+    color: #2A4573;
+}
+
+.navbar-default ul li ul li {
+    border: none;
+}
+
+.nav {
+    margin-bottom: 0px;
+    color: lightgrey;
+}
+
+.navbar-default {
+    border-top-style: dashed;
+    border-top-width: thin;
+    border-top-color: lightgrey;
+    border-left-style: none;
+    border-right-style: none;
+    background: azure;
+}
+
+/* of the separable section and second navbar */
