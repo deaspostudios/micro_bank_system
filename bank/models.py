@@ -3,10 +3,8 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils.timezone import now
 
-from loan.models import Economic
-
 # Create your models here.
-
+########################################################################################################################
 class Addresse(models.Model):
     postal_address = models.TextField(max_length=1000)
     email = models.EmailField()
@@ -19,23 +17,19 @@ class Addresse(models.Model):
     def __str__(self):
         return "Address details for: %s" % self.phone_no
 
-        ########################################################################################################################
 
-
+########################################################################################################################
 class SavingAccount(models.Model):
     account_number = models.IntegerField(auto_created=True, editable=False, primary_key=True)
     amount = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True)
     reg_date = models.DateTimeField(default=now)
 
-    ########################################################################################################################
 
-
+########################################################################################################################
 class CurrentAccount(models.Model):
     account_number = models.IntegerField(auto_created=True, editable=False, primary_key=True)
     amount = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True)
     reg_date = models.DateTimeField(default=now)
-
-
 ########################################################################################################################
 class ATMCard(models.Model):
     number = models.IntegerField(auto_created=True, editable=False, primary_key=True)
@@ -44,8 +38,6 @@ class ATMCard(models.Model):
     reg_date = models.DateTimeField(default=now)
     atm_saving = models.ForeignKey(SavingAccount, blank=True)
     atm_current = models.ForeignKey(CurrentAccount)
-
-
 class Personal_Information(models.Model):
     first_name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
@@ -59,14 +51,14 @@ class Personal_Information(models.Model):
     ########################################################################################################################
     current_ac = models.ForeignKey(CurrentAccount)
     ########################################################################################################################
-    economic = models.ForeignKey(Economic)
+    economic = models.ForeignKey('loan.Economic', blank=True, default="Not Available")
     ########################################################################################################################
     saving_ac = models.ForeignKey(SavingAccount, blank=True)
     ########################################################################################################################
     register_atm = models.BooleanField(default=True)
     atm_card = models.ForeignKey(ATMCard)
     ########################################################################################################################
-    loan_ac = models.ForeignKey(Loan, blank=True)
+    loan_ac = models.ForeignKey('loan.Loan', blank=True, default="Not Available")
     ########################################################################################################################
     date_registered = models.DateTimeField(default=now)
 
@@ -74,3 +66,4 @@ class Personal_Information(models.Model):
 
     def __str__(self):
         return "%s:%s" % (str(self.id_number), self.surname)
+        ########################################################################################################################
