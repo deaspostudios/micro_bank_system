@@ -19,8 +19,6 @@ class Expenses(models.Model):
                                         help_text="Are you schooling yourself or someone? Tell us how this expense applies to you.")
     school_fees = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True)
     others = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True)
-
-
 ########################################################################################################################
 class Saving(models.Model):
     savings_plan = models.BooleanField(default=True, blank=True)
@@ -28,6 +26,7 @@ class Saving(models.Model):
     monthly_saving = models.DecimalField(decimal_places=2, max_digits=7, default=0, blank=True)
 
 
+########################################################################################################################
 class Economic(models.Model):
     status = (
         ('employed', 'employed'),
@@ -52,8 +51,6 @@ class Economic(models.Model):
     savings = models.ForeignKey(Saving, blank=True)
     ########################################################################################################################
     monthly_expenses = models.ForeignKey(Expenses)
-
-
 ########################################################################################################################
 class Guarantor(models.Model):
     first_name = models.CharField(max_length=50)
@@ -64,8 +61,6 @@ class Guarantor(models.Model):
     passport_no = models.IntegerField(blank=True)
     pin_no = models.IntegerField()
     address = models.ForeignKey(Addresse)
-
-
 ########################################################################################################################
 class Other_Borrower(models.Model):
     first_name = models.CharField(max_length=50)
@@ -76,8 +71,6 @@ class Other_Borrower(models.Model):
     passport_no = models.IntegerField(blank=True)
     pin_no = models.IntegerField()
     address = models.ForeignKey(Addresse)
-
-
 ########################################################################################################################
 class Loan(models.Model):
     new_customer = models.BooleanField(default=True)
@@ -116,17 +109,7 @@ class Loan(models.Model):
     defaults_description = models.CharField(max_length=1000, blank=True)
     child_support = models.BooleanField(default=False)
     child_support_description = models.CharField(max_length=1000, blank=True)
-
-
-
-
-
-
-
 ########################################################################################################################
-
-
-    ########################################################################################################################
 
     # creddit scoring syatem function will be wriiten here
     # Analyzes loan worthiness and limits amount available to be borrowed
