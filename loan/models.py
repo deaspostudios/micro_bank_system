@@ -83,7 +83,7 @@ class Loan(models.Model):
         ('School Fees', 'School Fees'),
         ('Funeral', 'Funeral'),
     )
-    loan_tyoe = models.CharField(max_length=50, choices=loan_type_choices)
+    loan_type = models.CharField(max_length=50, choices=loan_type_choices)
     loan_period = models.IntegerField()
     status = (
         ('Awarded', 'Awarded'),
