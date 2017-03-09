@@ -11,10 +11,6 @@ from loan.models import Loan
 # Analyzes loan worthiness and limits amount available to be borrowed
 
 ########################################################################################################################
-class Person(object):
-    pass
-
-
 class Account(object):
     def __init__(self, acc_no):
         self.account_no = acc_no
@@ -111,16 +107,60 @@ class Atm(Current):
 
         # ToAdd functions for evaluating credit score
 
-
-class Loan(Account):
-    # this class will super alot from other class functions+
-    def __init__(self, acc_no, type, amount):
-        super(Loan, self).__init__(acc_no)
-        self.type = type
-        self.amount = amount
-        self.loanee = None
-        self.status = None
+    #
+    # class Loan(Account):
+    #     # this class will super alot from other class functions+
+    #     def __init__(self, acc_no, type, amount):
+    # super(Loan, self).__init__(acc_no)
+    # self.type = type
+    # self.amount = amount
+    # self.loanee = None
+    # self.status = None
         # def status(self, *args, **kwargs):
+
+
+class Address(object):
+    def __init__(self, email, phoneno):
+        self.email = email
+        self.pnoneno = phoneno
+        # Other fields
+        self.postal = None
+        self.physical = None
+
+
+class Postal(Address):
+    def __init__(self, postal):
+        self.postal = postal
+
+
+class Residency(Address):
+    def __init__(self, town, estate):
+        self.estate = estate
+        self.town = town
+        # other fields
+        self.houseno = None
+
+
+class Loanee(Loan):
+    pass
+
+
+class Guarantor(Loanee):
+    def __init__(self, fname, sname, idno, pin):
+        self.firtname = fname
+        self.surname = sname
+        self.id = idno
+        self.pin = pin
+        # other fields, though not mandatory
+        self.passport = None
+        self.address = None
+
+
+class OtherGuarantor(Guarantor):
+    def __init__(self, fname, sname, idno, pin):
+        super(OtherGuarantor, self).__init__(fname, sname, idno, pin)
+
+
 
 # Sample function of how the code is supposedly going to function
 # polycarp = Account(11840)
