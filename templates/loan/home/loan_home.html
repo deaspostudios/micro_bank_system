@@ -1,5 +1,52 @@
-<h1>Loans Tab</h1>
-<p>All the loans borrowed if any and chance to apply for one.</p>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'loan/css/loan_ads.css' %}">
+</head>
+<body>
+<h1>Welcome to the loans section</h1>
+<h3>You can find all the information regarding your loans here and also applying for a loan</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title center-block">Review your Loans</div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Loan no.</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Due</th>
+                        <th>Borrowed</th>
+                        <th>More</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+        <div id="ads" class="col-md-4 ads">
+
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade">
     <div style="width: 100%;margin: auto;" class="modal-content">
@@ -10,3 +57,22 @@
         </div>
     </div>
 </div>
+
+
+<!-- Javascripts -->
+<script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="{% static 'slides/jquery.backstretch.min.js' %}"></script>
+<script>
+    $('#ads').backstretch([
+        "{% static 'loan/images/ln1.jpg' %}",
+        "{% static 'loan/images/ln2.jpg' %}",
+        "{% static 'loan/images/ln3.jpg' %}",
+        "{% static 'loan/images/ln4.jpg' %}"
+    ], {duration: 3000});
+</script>
+
+</body>
+</html>

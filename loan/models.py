@@ -75,6 +75,7 @@ class Other_Borrower(models.Model):
 class Loan(models.Model):
     new_customer = models.BooleanField(default=True)
     loan_application_number = models.IntegerField(primary_key=True, auto_created=True, editable=False)
+    loan_amount = models.DecimalField(decimal_places=2, max_digits=7, default=0)
     loan_type_choices = (
         ('Instant', 'Instant'),
         ('Mjengo', 'Mjengo'),
@@ -83,7 +84,7 @@ class Loan(models.Model):
         ('School Fees', 'School Fees'),
         ('Funeral', 'Funeral'),
     )
-    loan_tyoe = models.CharField(max_length=50, choices=loan_type_choices)
+    loan_type = models.CharField(max_length=50, choices=loan_type_choices)
     loan_period = models.IntegerField()
     status = (
         ('Awarded', 'Awarded'),
@@ -109,12 +110,6 @@ class Loan(models.Model):
     defaults_description = models.CharField(max_length=1000, blank=True)
     child_support = models.BooleanField(default=False)
     child_support_description = models.CharField(max_length=1000, blank=True)
-########################################################################################################################
-
-    # creddit scoring syatem function will be wriiten here
-    # Analyzes loan worthiness and limits amount available to be borrowed
-
-########################################################################################################################
 
 #     Loan awarding system
 #     Awards a loan and credits the loanee account and also calculates days remaining to repayment
