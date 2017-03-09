@@ -2,6 +2,7 @@
 from django.shortcuts import get_object_or_404
 
 from bank.models import Personal_Information
+from loan.models import Loan
 
 
 ########################################################################################################################
@@ -10,6 +11,9 @@ from bank.models import Personal_Information
 # Analyzes loan worthiness and limits amount available to be borrowed
 
 ########################################################################################################################
+class Person(object):
+    pass
+
 
 class Account(object):
     def __init__(self, acc_no):
@@ -23,6 +27,8 @@ class Account(object):
         self.atm = None
         self.registrationdate = None
         self.creditscore = None
+
+        # am not sure if the below functions are required
 
     def personal_detail(self, *args, **kwargs):
         self.registrationdate = self.holder.date_registered
@@ -75,7 +81,6 @@ class Current(Account):
                 score = 1
 
                 # To find out, how does having an ATM affect one credibily
-
                 # Tasked Shem to define how active the account has been, suggest this be defined at account level
 
 
@@ -108,7 +113,7 @@ class Atm(Current):
 
 
 class Loan(Account):
-    # this class will super alot fro other class functions+
+    # this class will super alot from other class functions+
     def __init__(self, acc_no, type, amount):
         super(Loan, self).__init__(acc_no)
         self.type = type
@@ -116,3 +121,11 @@ class Loan(Account):
         self.loanee = None
         self.status = None
         # def status(self, *args, **kwargs):
+
+# Sample function of how the code is supposedly going to function
+# polycarp = Account(11840)
+# check if Polycarp has registered a current account
+# Logic is that Having an account does not imply having current account
+# We register a current account and if the same a/c number matches the a/c no for polycarp it's assigned to him
+# p_current.current = Current(11840, 5000, 09/03/2017)   #Also from this object it's where we shall get checks related
+# A person can have more than one current/savings/loans account
